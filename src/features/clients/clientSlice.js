@@ -3,6 +3,9 @@ import axios from 'axios';
 
 export const fetchClients = createAsyncThunk('clients/fetchClients', async () => {
   const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
+  debugger;
+  console.log("API:", process.env.REACT_APP_API_BASE_URL);
+
   const response = await axios.get(`${apiBaseUrl}/clients`);
   return response.data;
 });
