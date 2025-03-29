@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button, TextField, Typography } from '@mui/material';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export default function ClientForm() {
   const [formData, setFormData] = useState({
@@ -8,6 +9,8 @@ export default function ClientForm() {
     email: '',
     contact: ''
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData(prev => ({
@@ -20,9 +23,9 @@ export default function ClientForm() {
     e.preventDefault();
     try {
       const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
-      const response = await axios.post(`${apiBaseUrl}/clients`, formData);
-      console.log('Client added:', response.data);
+      await axios.post(`${apiBaseUrl}/clients`, formData);
       alert('Client added successfully');
+      navigate('/');
     } catch (error) {
       console.error('Error adding client:', error);
       alert('Failed to add client');
