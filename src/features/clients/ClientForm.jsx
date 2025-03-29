@@ -7,7 +7,7 @@ export default function ClientForm() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    contact: ''
+    contactNumber: ''
   });
 
   const navigate = useNavigate();
@@ -38,7 +38,7 @@ export default function ClientForm() {
       <form className="space-y-4" onSubmit={handleSubmit}>
         <TextField fullWidth label="Client Name" name="name" value={formData.name} onChange={handleChange} />
         <TextField fullWidth label="Email" name="email" value={formData.email} onChange={handleChange} />
-        <TextField fullWidth label="Contact Number" name="contact" value={formData.contact} onChange={handleChange} />
+        <TextField fullWidth label="Contact Number" name="contactNumber" value={formData.contactNumber} onChange={handleChange} />
         <Button variant="contained" color="primary" type="submit">Submit</Button>
       </form>
     </div>
