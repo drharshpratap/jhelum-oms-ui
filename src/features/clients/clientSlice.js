@@ -2,7 +2,8 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const fetchClients = createAsyncThunk('clients/fetchClients', async () => {
-  const response = await axios.get('https://jhelum-client-service.azurewebsites.net/clients');
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
+  const response = await axios.get(`${apiBaseUrl}/clients`);
   return response.data;
 });
 
