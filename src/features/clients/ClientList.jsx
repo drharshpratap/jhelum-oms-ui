@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchClients } from "./clientSlice";
-import { Button, CircularProgress, List, ListItem, ListItemText, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchClients } from './clientSlice';
+import { Button, CircularProgress, List, ListItem, ListItemText, Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 export default function ClientList() {
   const dispatch = useDispatch();

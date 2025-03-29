@@ -1,13 +1,13 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
-export const fetchClients = createAsyncThunk("clients/fetchClients", async () => {
-  const response = await axios.get("https://jhelum-client-service.azurewebsites.net/clients");
+export const fetchClients = createAsyncThunk('clients/fetchClients', async () => {
+  const response = await axios.get('https://jhelum-client-service.azurewebsites.net/clients');
   return response.data;
 });
 
 const clientSlice = createSlice({
-  name: "clients",
+  name: 'clients',
   initialState: {
     items: [],
     loading: false,
