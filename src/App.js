@@ -4,6 +4,8 @@ import ClientList from './features/clients/ClientList';
 import ClientForm from './features/clients/ClientForm';
 import Home from './pages/Home';
 import Layout from './components/Layout';
+import ClientPortfolioPage from './features/portfolios/ClientPortfolioPage';
+
 
 function App() {
   return (
@@ -13,6 +15,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/clients" element={<ClientList />} />
           <Route path="/add" element={<ClientForm />} />
+          <Route path="/clients/:id/portfolios" element={<ClientPortfolioPage />} />
         </Routes>
       </Layout>
     </Router>

@@ -58,8 +58,19 @@ export default function ClientList() {
       {error && <p>Error: {error}</p>}
       <List>
         {sortedItems.map((client) => (
-          <ListItem key={client.id}>
-            <ListItemText primary={client.name} secondary={`Email: ${client.email} | Contact: ${client.contactNumber}`} />
+          <ListItem key={client.id} divider>
+            <ListItemText
+              primary={client.name}
+              secondary={
+                <>
+                  Email: {client.email} | Contact: {client.contactNumber}
+                  <br />
+                  <Link to={`/clients/${client.id}/portfolios`}>
+                    View Portfolios →
+                  </Link>
+                </>
+              }
+            />
           </ListItem>
         ))}
       </List>
