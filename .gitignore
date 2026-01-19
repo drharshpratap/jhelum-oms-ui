@@ -136,3 +136,6 @@ dist
 .pnp.*
 package-lock.json
 .vite/deps_temp_cd6885f1/package.json
+.DS_Store
+src/.DS_Store
+src/features/.DS_Store
