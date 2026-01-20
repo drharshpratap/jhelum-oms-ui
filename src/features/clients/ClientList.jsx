@@ -1,79 +1,93 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchClients } from './clientSlice';
-import { Button, CircularProgress, List, ListItem, ListItemText, Typography, Grid } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { useState } from "react";
+import {
+  Box,
+  Typography,
+  Button,
+  TextField,
+  Chip,
+  Avatar
+} from "@mui/material";
+import "./client.css";
+
+const CLIENTS = [
+  {
+    id: 1,
+    name: "John Smith",
+    email: "john.smith@example.com",
+    phone: "+1 555 234 5678",
+    status: "Active"
+  },
+  {
+    id: 2,
+    name: "Emily Johnson",
+    email: "emily.j@example.com",
+    phone: "+1 555 987 1122",
+    status: "Inactive"
+  },
+  {
+    id: 3,
+    name: "Michael Brown",
+    email: "michael.brown@example.com",
+    phone: "+1 555 772 4433",
+    status: "Active"
+  }
+];
 
 export default function ClientList() {
-  const dispatch = useDispatch();
-  const { items, loading, error } = useSelector((state) => state.clients);
-  const [sortField, setSortField] = useState('');
-  const [sortOrder, setSortOrder] = useState('asc');
+  const [search, setSearch] = useState("");
 
-  useEffect(() => {
-    dispatch(fetchClients());
-  }, [dispatch]);
-
-  const handleSort = (field) => {
-    if (sortField === field) {
-      setSortOrder(prev => (prev === 'asc' ? 'desc' : 'asc'));
-    } else {
-      setSortField(field);
-      setSortOrder('asc');
-    }
-  };
-
-  const sortedItems = [...items].sort((a, b) => {
-    if (!sortField) return 0;
-    const fieldA = a[sortField]?.toLowerCase?.() || '';
-    const fieldB = b[sortField]?.toLowerCase?.() || '';
-    if (fieldA < fieldB) return sortOrder === 'asc' ? -1 : 1;
-    if (fieldA > fieldB) return sortOrder === 'asc' ? 1 : -1;
-    return 0;
-  });
+  const filteredClients = CLIENTS.filter((client) =>
+    client.name.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
-    <div className="p-6">
-      <Typography variant="h4" gutterBottom>Clients</Typography>
+    <Box className="clients-wrapper">
+      {/* Header */}
+      <Box className="clients-header">
+        <Typography variant="h5">Clients</Typography>
+        <Button variant="contained">Add Client</Button>
+      </Box>
 
-      <Grid container spacing={2} className="mb-4">
-        <Grid item>
-          <Button variant="contained" onClick={() => handleSort('name')}>
-            Sort by Name ({sortOrder === 'asc' && sortField === 'name' ? '↑' : '↓'})
-          </Button>
-        </Grid>
-        <Grid item>
-          <Button variant="contained" onClick={() => handleSort('contactNumber')}>
-            Sort by Contact ({sortOrder === 'asc' && sortField === 'contactNumber' ? '↑' : '↓'})
-          </Button>
-        </Grid>
-        <Grid item>
-          <Link to="/add">
-            <Button variant="outlined" color="primary">Add New Client</Button>
-          </Link>
-        </Grid>
-      </Grid>
+      {/* Search */}
+      <TextField
+        placeholder="Search clients..."
+        fullWidth
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        className="clients-search"
+      />
 
-      {loading && <CircularProgress />}
-      {error && <p>Error: {error}</p>}
-      <List>
-        {sortedItems.map((client) => (
-          <ListItem key={client.id} divider>
-            <ListItemText
-              primary={client.name}
-              secondary={
-                <>
-                  Email: {client.email} | Contact: {client.contactNumber}
-                  <br />
-                  <Link to={`/clients/${client.id}/portfolios`}>
-                    View Portfolios →
-                  </Link>
-                </>
+      {/* Client List */}
+      {filteredClients.length === 0 ? (
+        <Box className="clients-empty">
+          <Typography>No clients found</Typography>
+        </Box>
+      ) : (
+        filteredClients.map((client) => (
+          <Box key={client.id} className="client-row">
+            <Avatar className="client-avatar">
+              {client.name.charAt(0)}
+            </Avatar>
+
+            <Box className="client-info">
+              <Typography className="client-name">
+                {client.name}
+              </Typography>
+              <Typography className="client-meta">
+                {client.email} • {client.phone}
+              </Typography>
+            </Box>
+
+            <Chip
+              label={client.status}
+              color={
+                client.status === "Active" ? "success" : "default"
               }
+              size="small"
             />
-          </ListItem>
-        ))}
-      </List>
-    </div>
+          </Box>
+        ))
+      )}
+    </Box>
   );
 }

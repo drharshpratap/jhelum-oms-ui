@@ -11,6 +11,18 @@ import ClientForm from "./features/clients/ClientForm";
 import DocumentList from "./features/documents/DocumentList";
 import DocumentUpload from "./features/documents/DocumentUpload";
 
+import InboxLayout from "./layouts/InboxLayout";
+import InboxLanding from "./pages/InboxLanding";
+import ComposeMessage from "./features/inbox/ComposeMessage";
+import MessageThread from "./features/inbox/MessageThread";
+
+
+import AdminLayout from "./layouts/AdminLayout";
+import AdminLanding from "./pages/AdminLanding";
+import InviteUser from "./features/admin/InviteUser";
+import ProductRates from "./features/admin/ProductRates";
+
+
 function App() {
   return (
     <BrowserRouter>
@@ -27,6 +39,20 @@ function App() {
             <Route index element={<DocumentList />} />
             <Route path="add" element={<DocumentUpload />} />
           </Route>
+
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<AdminLanding />} />
+            <Route path="invite" element={<InviteUser />} />
+            <Route path="rates" element={<ProductRates />} />
+          </Route>
+
+          <Route path="inbox" element={<InboxLayout />}>
+            <Route index element={<InboxLanding />} />
+            <Route path="compose" element={<ComposeMessage />} />
+            <Route path="message/:id" element={<MessageThread />} />
+          </Route>
+
+
         </Route>
       </Routes>
     </BrowserRouter>
