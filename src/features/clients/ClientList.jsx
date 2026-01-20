@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Box,
   Typography,
@@ -35,6 +36,7 @@ const CLIENTS = [
 
 export default function ClientList() {
   const [search, setSearch] = useState("");
+  const navigate = useNavigate();
 
   const filteredClients = CLIENTS.filter((client) =>
     client.name.toLowerCase().includes(search.toLowerCase())
@@ -45,7 +47,12 @@ export default function ClientList() {
       {/* Header */}
       <Box className="clients-header">
         <Typography variant="h5">Clients</Typography>
-        <Button variant="contained">Add Client</Button>
+        <Button
+          variant="contained"
+          onClick={() => navigate("/clients/add")}
+        >
+          Add Client
+        </Button>
       </Box>
 
       {/* Search */}
