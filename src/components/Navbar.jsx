@@ -12,7 +12,7 @@ const Navbar = () => (
       </Typography>
       <Button color="inherit" component={Link} to="/">Home</Button>
       <Button color="inherit" component={Link} to="/clients">Clients</Button>
-      <Button color="inherit" component={Link} to="/add">Add Client</Button>
+      <Button color="inherit" component={Link} to="/accounts">Documents</Button>
     </Toolbar>
   </AppBar>
 );

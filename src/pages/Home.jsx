@@ -21,7 +21,7 @@ const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 export default function Home() {
   return (
     <>
-      <Navbar />
+     
       <div className="p-6">
         <Typography variant="h4" gutterBottom>Welcome to Jhelum OMS</Typography>
 
