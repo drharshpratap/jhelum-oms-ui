@@ -1,24 +1,26 @@
-import React from 'react';
-import { AppBar, Toolbar, Typography, Button } from '@mui/material';
-import { Link } from 'react-router-dom';
 
-const Navbar = () => (
-  <AppBar position="static" color="primary">
-    <Toolbar>
-      <Typography variant="h6" sx={{ flexGrow: 1 }}>
-        <Link to="/" style={{ color: 'inherit', textDecoration: 'none' }}>
-          Pebbles Demo
-        </Link>
-      </Typography>
-      <Button color="inherit" component={Link} to="/">Home</Button>
-      <Button color="inherit" component={Link} to="/clients">Clients</Button>
-      <Button color="inherit" component={Link} to="/documents">Documents</Button>
-      <Button color="inherit" component={Link} to="/inbox">Inbox</Button>
-      <Button color="inherit" component={Link} to="/admin">Admin</Button>
+import { useState } from "react";
 
-      
-    </Toolbar>
-  </AppBar>
-);
+import DesktopNav from "./Navbar/DesktopNav";
+import MobileNav from "./Navbar/MobileNav";
+import NavDrawer from "./Navbar/NavDrawer";
 
-export default Navbar;
+export default function Navbar() {
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  return (
+    <>
+      <div className="hidden md:block">
+        <DesktopNav />
+      </div>
+
+      <div className="md:hidden">
+        <MobileNav onMenuClick={() => setDrawerOpen(true)} />
+        <NavDrawer
+          open={drawerOpen}
+          onClose={() => setDrawerOpen(false)}
+        />
+      </div>
+    </>
+  );
+}

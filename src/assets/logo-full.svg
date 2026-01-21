@@ -1,0 +1,13 @@
+
+<svg viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="110" cy="40" r="22" fill="#E6E1D6"/>
+  <path d="M60 85 Q110 55 160 85 Q150 110 110 110 Q70 110 60 85Z" fill="#E9D7BF"/>
+  <path d="M40 130 Q110 95 180 130 Q150 170 110 170 Q70 170 40 130Z" fill="#5F6E75"/>
+  <text x="110" y="195" text-anchor="middle"
+    font-family="Inter, Arial, sans-serif"
+    font-size="28"
+    fill="#4A4F54"
+    font-weight="500">
+    Steady Pebbles
+  </text>
+</svg>
