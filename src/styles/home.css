@@ -1,72 +1,120 @@
-.home-wrapper {
+.home-container {
   padding: 32px;
 }
 
-.home-header {
-  margin-bottom: 36px;
+.home-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+.home-title {
+  font-weight: 700;
+  margin-bottom: 8px;
 }
 
 .home-subtitle {
-  margin-top: 6px;
   color: #6b7280;
 }
 
+.home-hero-image {
+  width: 260px;
+}
+
 .module-card {
-  height: 100%;
-  border-radius: 14px;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: all 0.2s ease;
+  align-items: center;
+  gap: 24px;
+  padding: 24px;
+  border-radius: 16px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  transition: all 0.25s ease;
 }
 
 .module-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.08);
 }
 
-.module-title {
-  font-weight: 600;
-  margin-bottom: 8px;
+.module-image {
+  width: 120px;
+}
+
+.module-content {
+  flex: 1;
 }
 
 .module-description {
   color: #6b7280;
+  margin: 8px 0 16px;
 }
 
-.module-footer {
-  padding: 16px;
-  display: flex;
-  justify-content: flex-end;
+.module-card.blue .module-button {
+  background-color: #1976d2;
 }
 
-.activity-wrapper {
+.module-card.purple .module-button {
+  background-color: #7c3aed;
+}
+
+.module-card.green .module-button {
+  background-color: #059669;
+}
+
+.module-card.gray .module-button {
+  background-color: #6b7280;
+}
+
+/* Recent Activity */
+
+.activity-section {
   margin-top: 48px;
   padding: 24px;
-  border-radius: 14px;
-  background-color: #fafafa;
+  background: #fafafa;
+  border-radius: 12px;
 }
 
 .activity-title {
   margin-bottom: 16px;
+  font-weight: 600;
 }
 
-.activity-row {
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.activity-item {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 12px 0;
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+.activity-time {
+  margin-left: auto;
+  font-size: 0.8rem;
+  color: #6b7280;
 }
 
 .activity-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: #1976d2;
 }
 
-.activity-time {
-  margin-left: auto;
-  font-size: 0.85rem;
-  color: #6b7280;
+.activity-dot.blue {
+  background: #2563eb;
+}
+
+.activity-dot.green {
+  background: #059669;
+}
+
+.activity-dot.purple {
+  background: #7c3aed;
 }

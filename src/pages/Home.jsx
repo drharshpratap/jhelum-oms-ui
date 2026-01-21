@@ -1,35 +1,40 @@
-import {
-  Box,
-  Grid,
-  Card,
-  CardContent,
-  Typography,
-  Button
-} from "@mui/material";
+import { Box, Typography, Button, Grid } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import RecentActivity from "../components/RecentActivity";
 import "../styles/home.css";
+
+import clientsImg from "../assets/illustrations/clients.svg";
+import documentsImg from "../assets/illustrations/documents.svg";
+import adminImg from "../assets/illustrations/admin.svg";
+import inboxImg from "../assets/illustrations/inbox.svg";
 
 const MODULES = [
   {
     title: "Client Management",
     description: "Manage and organize client-related data.",
-    route: "/clients"
+    image: clientsImg,
+    route: "/clients",
+    color: "blue"
   },
   {
     title: "Document Management",
     description: "Upload, organize, and manage documents.",
-    route: "/documents"
+    image: documentsImg,
+    route: "/documents",
+    color: "purple"
   },
   {
     title: "Admin Controls",
     description: "Manage users, roles, and system settings.",
-    route: "/admin"
+    image: adminImg,
+    route: "/admin",
+    color: "gray"
   },
   {
     title: "Inbox & Messaging",
     description: "Communicate with users inside the application.",
-    route: "/inbox"
+    image: inboxImg,
+    route: "/inbox",
+    color: "green"
   }
 ];
 
@@ -37,43 +42,82 @@ export default function Home() {
   const navigate = useNavigate();
 
   return (
-    <Box className="home-wrapper">
-      <Box className="home-header">
-        <Typography variant="h4">
-          Welcome to the Demo Application
-        </Typography>
-        <Typography className="home-subtitle">
-          Choose a module below to get started.
-        </Typography>
+    <Box className="home-container">
+      <Box className="home-hero">
+        <Box>
+          <Typography variant="h4" className="home-title">
+            Welcome to the Demo Application
+          </Typography>
+          <Typography className="home-subtitle">
+            Choose a module below to get started.
+          </Typography>
+        </Box>
+
+        <img
+          src={clientsImg}
+          alt="illustration"
+          className="home-hero-image"
+        />
       </Box>
 
       <Grid container spacing={3}>
         {MODULES.map((module) => (
-          <Grid item xs={12} sm={6} key={module.title}>
-            <Card className="module-card">
-              <CardContent>
-                <Typography variant="h6" className="module-title">
+          <Grid item xs={12} md={6} key={module.title}>
+            <Box className={`module-card ${module.color}`}>
+              <img
+                src={module.image}
+                alt={module.title}
+                className="module-image"
+              />
+
+              <Box className="module-content">
+                <Typography variant="h6">
                   {module.title}
                 </Typography>
+
                 <Typography className="module-description">
                   {module.description}
                 </Typography>
-              </CardContent>
 
-              <Box className="module-footer">
                 <Button
                   variant="contained"
+                  className="module-button"
                   onClick={() => navigate(module.route)}
                 >
-                  Go to module
+                  Go to module →
                 </Button>
               </Box>
-            </Card>
+            </Box>
           </Grid>
         ))}
       </Grid>
 
-      <RecentActivity />
+      {/* Recent Activity */}
+      <Box className="activity-section">
+        <Typography variant="h6" className="activity-title">
+          Recent Activity
+        </Typography>
+
+        <Box className="activity-list">
+          <Box className="activity-item">
+            <span className="activity-dot blue" />
+            <span>New user invited</span>
+            <span className="activity-time">2 hours ago</span>
+          </Box>
+
+          <Box className="activity-item">
+            <span className="activity-dot green" />
+            <span>Document uploaded</span>
+            <span className="activity-time">1 day ago</span>
+          </Box>
+
+          <Box className="activity-item">
+            <span className="activity-dot purple" />
+            <span>Client added</span>
+            <span className="activity-time">3 days ago</span>
+          </Box>
+        </Box>
+      </Box>
     </Box>
   );
 }
