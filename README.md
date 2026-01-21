@@ -10,6 +10,7 @@ Rules:
 - Prefer readability over clever code
 - Think in scalable patterns
 - Suggest improvements when needed
+- Focus on the current problem
 - Avoid beginner explanations
 - Ask questions only if absolutely required to proceed
 - Treat this like a real production codebase
