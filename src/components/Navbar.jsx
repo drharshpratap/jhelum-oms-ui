@@ -10,11 +10,11 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="hidden md:block">
+      <div className="desktop-nav">
         <DesktopNav />
       </div>
 
-      <div className="md:hidden">
+      <div className="mobile-nav">
         <MobileNav onMenuClick={() => setDrawerOpen(true)} />
         <NavDrawer
           open={drawerOpen}

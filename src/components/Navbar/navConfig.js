@@ -4,5 +4,6 @@ export const NAV_LINKS = [
   { label: "Clients", path: "/clients" },
   { label: "Documents", path: "/documents" },
   { label: "Inbox", path: "/inbox" },
+  { label: "Experience", path: "/experience", },
   { label: "Admin", path: "/admin" }
 ];

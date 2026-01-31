@@ -22,6 +22,10 @@ import AdminLanding from "./pages/AdminLanding";
 import InviteUser from "./features/admin/InviteUser";
 import ProductRates from "./features/admin/ProductRates";
 
+import ChatLauncherButton from "./features/aichat/components/ChatLauncherButton";
+
+import ExperiencePage from "./features/experience/ExperiencePage";
+
 
 function App() {
   return (
@@ -34,6 +38,8 @@ function App() {
             <Route index element={<ClientList />} />
             <Route path="add" element={<ClientForm />} />
           </Route>
+          
+          <Route path="experience" element={<ExperiencePage />} />
 
           <Route path="documents" element={<DocumentLayout />}>
             <Route index element={<DocumentList />} />
@@ -55,6 +61,9 @@ function App() {
 
         </Route>
       </Routes>
+<ChatLauncherButton />
+
+      
     </BrowserRouter>
   );
 }

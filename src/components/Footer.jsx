@@ -15,7 +15,7 @@ export default function Footer() {
       }}
     >
       <Typography variant="caption" sx={{ margin: 0 }}>
-        © {new Date().getFullYear()} Pebbles Demo. All rights reserved.
+        © {new Date().getFullYear()} PEBBLES. All rights reserved.
       </Typography>
     </Box>
   );
