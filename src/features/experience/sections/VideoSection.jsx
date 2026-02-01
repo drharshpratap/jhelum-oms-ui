@@ -34,9 +34,15 @@ export default function VideoSection() {
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <div className="experience-container">
-        <h3 className="experience-subtitle">
-          Unified AI Experience
-        </h3>
+
+        <motion.h3
+            className="experience-subtitle"
+            initial={{ fontSize: "28px" }}
+            whileInView={{ fontSize: "44px" }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
+          > Unified AI Experience
+          </motion.h3> 
 
         <video
           ref={videoRef}

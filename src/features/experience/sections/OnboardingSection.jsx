@@ -20,9 +20,16 @@ export default function OnboardingSection() {
         </div>
 
         <div>
-          <h3 className="experience-subtitle">
-            Structured Client Onboarding
-          </h3>
+          
+
+          <motion.h3
+            className="experience-subtitle"
+            initial={{ fontSize: "28px" }}
+            whileInView={{ fontSize: "44px" }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
+          > Structured Client Onboarding
+          </motion.h3>
 
           <p className="experience-text">
             Guided onboarding experiences ensure clean data intake,
