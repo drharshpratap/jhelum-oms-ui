@@ -1,0 +1,56 @@
+/* ===== Admin Access Gate ===== */
+
+.admin-gate-wrapper {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-gate-card {
+  width: 320px;
+  padding: 24px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.admin-gate-title {
+  margin-bottom: 12px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.admin-gate-input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.admin-gate-error {
+  color: #b91c1c;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.admin-gate-button {
+  width: 100%;
+  padding: 10px;
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.admin-unlocked-badge {
+  display: inline-block;
+  background: #ecfeff;
+  color: #0369a1;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  margin-bottom: 16px;
+}

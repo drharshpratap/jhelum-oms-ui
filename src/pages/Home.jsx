@@ -9,8 +9,8 @@ import inboxImg from "../assets/illustrations/inbox.svg";
 
 const MODULES = [
   {
-    title: "Client Management",
-    description: "Manage and organize client-related data.",
+    title: "Customer Management",
+    description: "Manage and organize Customer data.",
     image: clientsImg,
     route: "/clients",
     color: "blue"
@@ -46,7 +46,7 @@ export default function Home() {
       <Box className="home-hero">
         <Box>
           <Typography variant="h4" className="home-title">
-            Welcome to the Demo Application
+            Welcome to Pebbles
           </Typography>
           <Typography className="home-subtitle">
             Choose a module below to get started.

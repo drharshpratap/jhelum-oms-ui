@@ -9,6 +9,8 @@ import {
   Alert
 } from "@mui/material";
 
+import AdminAccessGate from "../features/admin/AdminAccessGate";
+
 const USERS = [
   { name: "Amit Sharma", email: "amit@mail.com", role: "Admin", status: "Active" },
   { name: "Neha Verma", email: "neha@mail.com", role: "Accountant", status: "Active" },
@@ -21,6 +23,8 @@ export default function AdminLanding() {
 
   return (
     <>
+     <AdminAccessGate>
+    
       {showSuccess && (
         <Alert severity="success" sx={{ mb: 2 }}>
           Invitation sent successfully.
@@ -56,6 +60,7 @@ export default function AdminLanding() {
           ))}
         </TableBody>
       </Table>
+      </AdminAccessGate>
     </>
   );
 }

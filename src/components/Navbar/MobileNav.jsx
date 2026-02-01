@@ -15,7 +15,7 @@ export default function MobileNav({ onMenuClick }) {
         <img
           src={LogoFull}
           alt="Steady Pebbles"
-          className="h-6 w-auto"
+          className="mobile-navbar-logo"
         />
       </div>
     </header>

@@ -11,3 +11,83 @@
   text-decoration: none;
   font-weight: 500;
 }
+
+/* ===== Desktop Navbar ===== */
+
+.desktop-navbar {
+  display: flex;
+  align-items: center;
+  height: 64px;
+  padding: 0 40px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  box-sizing: border-box;
+}
+
+/* Logo */
+
+.desktop-navbar__logo {
+  display: flex;
+  align-items: center;
+}
+
+.desktop-navbar__logo img {
+  height: 50px;
+  width: auto;
+  display: block;
+}
+
+/* Navigation Links */
+
+.desktop-navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  margin-left: 56px;
+}
+
+/* Nav link base */
+
+.desktop-nav-link {
+  position: relative;
+  font-size: 15px;
+  font-weight: 500;
+  color: #374151;
+  text-decoration: none;
+  padding: 6px 0;
+  transition: color 0.15s ease;
+}
+
+/* Hover */
+
+.desktop-nav-link:hover {
+  color: #111827;
+}
+
+/* Active underline */
+
+.desktop-nav-link.active {
+  color: #111827;
+}
+
+.desktop-nav-link.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 100%;
+  height: 2px;
+  background-color: #2563eb;
+  border-radius: 2px;
+}
+
+/* ===== Mobile Navbar Logo ===== */
+
+.mobile-navbar-logo {
+  height: 34px;
+  width: auto;
+  max-height: 34px;
+  object-fit: contain;
+  display: block;
+}
+
