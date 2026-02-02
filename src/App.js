@@ -21,6 +21,7 @@ import AdminLayout from "./layouts/AdminLayout";
 import AdminLanding from "./pages/AdminLanding";
 import InviteUser from "./features/admin/InviteUser";
 import ProductRates from "./features/admin/ProductRates";
+import FeatureFlags from "./features/admin/FeatureFlags";
 
 import ChatLauncherButton from "./features/aichat/components/ChatLauncherButton";
 
@@ -50,6 +51,7 @@ function App() {
             <Route index element={<AdminLanding />} />
             <Route path="invite" element={<InviteUser />} />
             <Route path="rates" element={<ProductRates />} />
+            <Route path="featureflags" element={<FeatureFlags />} />
           </Route>
 
           <Route path="inbox" element={<InboxLayout />}>

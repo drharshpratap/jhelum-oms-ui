@@ -54,3 +54,45 @@
   font-size: 13px;
   margin-bottom: 16px;
 }
+
+
+.feature-flags-page {
+  padding: 32px;
+}
+
+.feature-flags-page__header {
+  margin-bottom: 32px;
+}
+
+.feature-flags-page__list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.feature-flag-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.feature-flag-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.feature-flag-card__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.feature-flag-card__text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.feature-flag-card__controls {
+  margin-left: 24px;
+}

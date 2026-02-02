@@ -22,6 +22,9 @@ export default function AdminNavbar() {
       <Button component={NavLink} to="/admin/rates">
         Product Rates
       </Button>
+      <Button component={NavLink} to="/admin/featureflags">
+        Feature Flags
+      </Button>
     </Box>
   );
 }

@@ -6,6 +6,8 @@ import clientsImg from "../assets/illustrations/clients.svg";
 import documentsImg from "../assets/illustrations/documents.svg";
 import adminImg from "../assets/illustrations/admin.svg";
 import inboxImg from "../assets/illustrations/inbox.svg";
+import { useSelector } from "react-redux";
+
 
 const MODULES = [
   {
@@ -13,14 +15,16 @@ const MODULES = [
     description: "Manage and organize Customer data.",
     image: clientsImg,
     route: "/clients",
-    color: "blue"
+    color: "blue",
+    featureKey: "clients"
   },
   {
     title: "Document Management",
     description: "Upload, organize, and manage documents.",
     image: documentsImg,
     route: "/documents",
-    color: "purple"
+    color: "purple",
+    featureKey: "documents"
   },
   {
     title: "Admin Controls",
@@ -34,12 +38,17 @@ const MODULES = [
     description: "Communicate with users inside the application.",
     image: inboxImg,
     route: "/inbox",
-    color: "green"
+    color: "green",
+    featureKey: "inbox"
   }
 ];
 
 export default function Home() {
   const navigate = useNavigate();
+
+  const featureFlags = useSelector(
+    state => state.admin.featureFlags
+  );
 
   return (
     <Box className="home-container">
@@ -61,7 +70,10 @@ export default function Home() {
       </Box>
 
       <Grid container spacing={3}>
-        {MODULES.map((module) => (
+        {MODULES.filter(module => {
+          if (!module.featureKey) return true;
+          return featureFlags?.[module.featureKey];
+        }).map((module) => (
           <Grid item xs={12} md={6} key={module.title}>
             <Box className={`module-card ${module.color}`}>
               <img
