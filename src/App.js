@@ -27,10 +27,13 @@ import ChatLauncherButton from "./features/aichat/components/ChatLauncherButton"
 
 import ExperiencePage from "./features/experience/ExperiencePage";
 
+import DemoSessionGate from "./features/admin/demoAccess/DemoSessionGate";
+
 
 function App() {
   return (
     <BrowserRouter>
+       <DemoSessionGate>
       <Routes>
         <Route element={<GlobalLayout />}>
           <Route path="/" element={<Home />} />
@@ -63,6 +66,7 @@ function App() {
 
         </Route>
       </Routes>
+      </DemoSessionGate>
 <ChatLauncherButton />
 
       

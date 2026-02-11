@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 
 import AdminAccessGate from "../features/admin/AdminAccessGate";
+import DemoAccessGenerator from "../features/admin/demoAccess/DemoAccessGenerator";
 
 const USERS = [
   { name: "Amit Sharma", email: "amit@mail.com", role: "Admin", status: "Active" },
@@ -24,7 +25,7 @@ export default function AdminLanding() {
   return (
     <>
      <AdminAccessGate>
-    
+
       {showSuccess && (
         <Alert severity="success" sx={{ mb: 2 }}>
           Invitation sent successfully.
@@ -33,32 +34,10 @@ export default function AdminLanding() {
 
       <h2>Users Overview</h2>
 
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell>Name</TableCell>
-            <TableCell>Email</TableCell>
-            <TableCell>Role</TableCell>
-            <TableCell>Status</TableCell>
-          </TableRow>
-        </TableHead>
+      <DemoAccessGenerator />
 
-        <TableBody>
-          {USERS.map((user, i) => (
-            <TableRow key={i}>
-              <TableCell>{user.name}</TableCell>
-              <TableCell>{user.email}</TableCell>
-              <TableCell>{user.role}</TableCell>
-              <TableCell>
-                <Chip
-                  label={user.status}
-                  color={user.status === "Active" ? "success" : "warning"}
-                  size="small"
-                />
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
+      <Table>
+        ...
       </Table>
       </AdminAccessGate>
     </>
