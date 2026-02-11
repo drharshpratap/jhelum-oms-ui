@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import ClientDetails from "./ClientDetails";
+
 import {
   Box,
   Typography,
@@ -36,7 +38,29 @@ const CLIENTS = [
 
 export default function ClientList() {
   const [search, setSearch] = useState("");
+  const [expandedClientId, setExpandedClientId] = useState(null);
   const navigate = useNavigate();
+
+  const handleToggleClient = (clientId) => {
+    setExpandedClientId((prev) =>
+      prev === clientId ? null : clientId
+    );
+  };
+
+  const getAvatarColor = (name) => {
+    const colors = [
+      "#1976d2",
+      "#9c27b0",
+      "#2e7d32",
+      "#ed6c02",
+      "#0288d1",
+      "#6a1b9a"
+    ];
+    const index = name.charCodeAt(0) % colors.length;
+    return colors[index];
+  };
+
+
 
   const filteredClients = CLIENTS.filter((client) =>
     client.name.toLowerCase().includes(search.toLowerCase())
@@ -72,12 +96,16 @@ export default function ClientList() {
       ) : (
         filteredClients.map((client) => (
           <Box key={client.id} className="client-row">
-            <Avatar className="client-avatar">
+            <Avatar className="client-avatar"
+            sx={{ bgcolor: getAvatarColor(client.name) }}>
               {client.name.charAt(0)}
             </Avatar>
 
             <Box className="client-info">
-              <Typography className="client-name">
+              <Typography className="client-name"
+                sx={{ cursor: "pointer", color: "inherit" }}
+                onClick={() => handleToggleClient(client.id)}>
+
                 {client.name}
               </Typography>
               <Typography className="client-meta">
@@ -92,6 +120,13 @@ export default function ClientList() {
               }
               size="small"
             />
+
+            {expandedClientId === client.id && (
+              <Box className="client-details-inline">
+                <ClientDetails client={client} />
+              </Box>
+            )}
+
           </Box>
         ))
       )}
