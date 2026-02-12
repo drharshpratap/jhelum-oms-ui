@@ -8,47 +8,44 @@ import adminImg from "../assets/illustrations/admin.svg";
 import inboxImg from "../assets/illustrations/inbox.svg";
 import { useSelector } from "react-redux";
 
-
 const MODULES = [
   {
     title: "Customer Management",
     description: "Manage and organize Customer data.",
     image: clientsImg,
     route: "/clients",
-    color: "blue",
-    featureKey: "clients"
+    color: "sage",
+    featureKey: "clients",
   },
   {
     title: "Document Management",
     description: "Upload, organize, and manage documents.",
     image: documentsImg,
     route: "/documents",
-    color: "purple",
-    featureKey: "documents"
+    color: "stone",
+    featureKey: "documents",
   },
   {
     title: "Admin Controls",
     description: "Manage users, roles, and system settings.",
     image: adminImg,
     route: "/admin",
-    color: "gray"
+    color: "charcoal",
   },
   {
     title: "Inbox & Messaging",
     description: "Communicate with users inside the application.",
     image: inboxImg,
     route: "/inbox",
-    color: "green",
-    featureKey: "inbox"
-  }
+    color: "mist",
+    featureKey: "inbox",
+  },
 ];
 
 export default function Home() {
   const navigate = useNavigate();
 
-  const featureFlags = useSelector(
-    state => state.admin.featureFlags
-  );
+  const featureFlags = useSelector((state) => state.admin.featureFlags);
 
   return (
     <Box className="home-container">
@@ -58,19 +55,16 @@ export default function Home() {
             Welcome to Pebbles
           </Typography>
           <Typography className="home-subtitle">
-            Choose a module below to get started.
+            Pick a module below to get started. 
+          
           </Typography>
         </Box>
 
-        <img
-          src={clientsImg}
-          alt="illustration"
-          className="home-hero-image"
-        />
+        
       </Box>
 
       <Grid container spacing={3}>
-        {MODULES.filter(module => {
+        {MODULES.filter((module) => {
           if (!module.featureKey) return true;
           return featureFlags?.[module.featureKey];
         }).map((module) => (
@@ -83,9 +77,7 @@ export default function Home() {
               />
 
               <Box className="module-content">
-                <Typography variant="h6">
-                  {module.title}
-                </Typography>
+                <Typography variant="h6">{module.title}</Typography>
 
                 <Typography className="module-description">
                   {module.description}
@@ -104,7 +96,6 @@ export default function Home() {
         ))}
       </Grid>
 
-      {/* Recent Activity */}
       <Box className="activity-section">
         <Typography variant="h6" className="activity-title">
           Recent Activity
@@ -112,19 +103,19 @@ export default function Home() {
 
         <Box className="activity-list">
           <Box className="activity-item">
-            <span className="activity-dot blue" />
+            <span className="activity-dot sage" />
             <span>New user invited</span>
             <span className="activity-time">2 hours ago</span>
           </Box>
 
           <Box className="activity-item">
-            <span className="activity-dot green" />
+            <span className="activity-dot mist" />
             <span>Document uploaded</span>
             <span className="activity-time">1 day ago</span>
           </Box>
 
           <Box className="activity-item">
-            <span className="activity-dot purple" />
+            <span className="activity-dot stone" />
             <span>Client added</span>
             <span className="activity-time">3 days ago</span>
           </Box>
