@@ -1,135 +1,210 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import ClientDetails from "./ClientDetails";
+  import { useState } from "react";
+  import { useNavigate } from "react-router-dom";
+  import ClientDetails from "./ClientDetails";
+  import ClientEditPanel from "./components/ClientEditPanel";
 
-import {
-  Box,
-  Typography,
-  Button,
-  TextField,
-  Chip,
-  Avatar
-} from "@mui/material";
-import "./client.css";
+import ClientsHeader from "./components/ClientsHeader";
 
-const CLIENTS = [
-  {
-    id: 1,
-    name: "John Smith",
-    email: "john.smith@example.com",
-    phone: "+1 555 234 5678",
-    status: "Active"
-  },
-  {
-    id: 2,
-    name: "Emily Johnson",
-    email: "emily.j@example.com",
-    phone: "+1 555 987 1122",
-    status: "Inactive"
-  },
-  {
-    id: 3,
-    name: "Michael Brown",
-    email: "michael.brown@example.com",
-    phone: "+1 555 772 4433",
-    status: "Active"
-  }
-];
+  import {
+    Box,
+    Typography,
+    Button,
+    TextField,
+    Chip,
+    Avatar
+  } from "@mui/material";
+  import "./client.css";
 
-export default function ClientList() {
-  const [search, setSearch] = useState("");
-  const [expandedClientId, setExpandedClientId] = useState(null);
-  const navigate = useNavigate();
+  const CLIENTS = [
+    {
+      id: 1,
+      name: "John Smith",
+      email: "john.smith@example.com",
+      phone: "+1 555 234 5678",
+      status: "Active"
+    },
+    {
+      id: 2,
+      name: "Emily Johnson",
+      email: "emily.j@example.com",
+      phone: "+1 555 987 1122",
+      status: "Inactive"
+    },
+    {
+      id: 3,
+      name: "Michael Brown",
+      email: "michael.brown@example.com",
+      phone: "+1 555 772 4433",
+      status: "Active"
+    }
+  ];
 
-  const handleToggleClient = (clientId) => {
-    setExpandedClientId((prev) =>
-      prev === clientId ? null : clientId
+  export default function ClientList() {
+    const [search, setSearch] = useState("");
+    const [expandedClientId, setExpandedClientId] = useState(null);
+
+    const [clients, setClients] = useState(CLIENTS);
+    const [selectedClient, setSelectedClient] = useState(null);
+
+    const navigate = useNavigate();
+
+    const handleToggleClient = (clientId) => {
+      setExpandedClientId((prev) =>
+        prev === clientId ? null : clientId
+      );
+    };
+
+    const handleUpdateClient = (updatedClient) => {
+      setClients((prev) =>
+        prev.map((c) =>
+          c.id === updatedClient.id ? updatedClient : c
+        )
+      );
+    };
+
+    const getAvatarColor = (name) => {
+      const colors = [
+        "#1976d2",
+        "#9c27b0",
+        "#2e7d32",
+        "#ed6c02",
+        "#0288d1",
+        "#6a1b9a"
+      ];
+      const index = name.charCodeAt(0) % colors.length;
+      return colors[index];
+    };
+
+    const filteredClients = clients.filter((client) =>
+      client.name.toLowerCase().includes(search.toLowerCase())
     );
-  };
 
-  const getAvatarColor = (name) => {
-    const colors = [
-      "#1976d2",
-      "#9c27b0",
-      "#2e7d32",
-      "#ed6c02",
-      "#0288d1",
-      "#6a1b9a"
-    ];
-    const index = name.charCodeAt(0) % colors.length;
-    return colors[index];
-  };
+    return (
 
+      
+      <Box className="clients-wrapper">
+          
+        {/* Header */}
+        <ClientsHeader onAdd={() => navigate("/clients/add")} />
 
+        {/* Search */}
+        <TextField
+          placeholder="Search clients..."
+          fullWidth
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="clients-search"
+          sx={{ mb: 2 }}
+        />
 
-  const filteredClients = CLIENTS.filter((client) =>
-    client.name.toLowerCase().includes(search.toLowerCase())
-  );
-
-  return (
-    <Box className="clients-wrapper">
-      {/* Header */}
-      <Box className="clients-header">
-        <Typography variant="h5">Clients</Typography>
-        <Button
-          variant="contained"
-          onClick={() => navigate("/clients/add")}
-        >
-          Add Client
-        </Button>
-      </Box>
-
-      {/* Search */}
-      <TextField
-        placeholder="Search clients..."
-        fullWidth
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        className="clients-search"
-      />
-
-      {/* Client List */}
-      {filteredClients.length === 0 ? (
-        <Box className="clients-empty">
-          <Typography>No clients found</Typography>
-        </Box>
-      ) : (
-        filteredClients.map((client) => (
-          <Box key={client.id} className="client-row">
-            <Avatar className="client-avatar"
-            sx={{ bgcolor: getAvatarColor(client.name) }}>
-              {client.name.charAt(0)}
-            </Avatar>
-
-            <Box className="client-info">
-              <Typography className="client-name"
-                sx={{ cursor: "pointer", color: "inherit" }}
-                onClick={() => handleToggleClient(client.id)}>
-
-                {client.name}
-              </Typography>
-              <Typography className="client-meta">
-                {client.email} • {client.phone}
-              </Typography>
-            </Box>
-
-            <Chip
-              label={client.status}
-              color={
-                client.status === "Active" ? "success" : "default"
-              }
-              size="small"
-            />
-
-            {expandedClientId === client.id && (
-              <Box className="client-details-inline">
-                <ClientDetails client={client} />
-              </Box>
-            )}
-
+        {/* Client List */}
+        {filteredClients.length === 0 ? (
+          <Box className="clients-empty">
+            <Typography>No clients found</Typography>
           </Box>
-        ))
-      )}
-    </Box>
-  );
-}
+        ) : (
+          filteredClients.map((client) => (
+            <Box
+              key={client.id}
+              className="client-row"
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                gap: 8,
+                flexWrap: "wrap",
+                py: 1,
+
+                "@media (max-width: 600px)": {
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  gap: 6,
+                },
+              }}
+            >
+              <Avatar
+                className="client-avatar"
+                sx={{ bgcolor: getAvatarColor(client.name), width: 38, height: 38 }}
+              >
+                {client.name.charAt(0)}
+              </Avatar>
+
+              <Box sx={{ flex: 1, width: "100%" }}>
+                <Typography
+                  className="client-name"
+                  sx={{
+                    cursor: "pointer",
+                    fontWeight: 600,
+                    lineHeight: 1.2,
+                  }}
+                  onClick={() => handleToggleClient(client.id)}
+                >
+                  {client.name}
+                </Typography>
+
+                <Typography
+                  className="client-meta"
+                  sx={{ mt: 0.2, fontSize: "0.85rem" }}
+                >
+                  {client.email} • {client.phone}
+                </Typography>
+              </Box>
+
+              {/* Responsive actions */}
+              <Box
+                sx={{
+                  display: "flex",
+                  gap: 6,
+                  alignItems: "center",
+
+                  "@media (max-width: 600px)": {
+                    width: "100%",
+                    justifyContent: "space-between",
+                  },
+                }}
+              >
+                <Chip
+                  label={client.status}
+                  color={
+                    client.status === "Active" ? "success" : "default"
+                  }
+                  size="small"
+                />
+
+                <Button
+                  size="small"
+                  variant="contained"
+                  sx={{
+                    borderRadius: 2,
+                    textTransform: "none",
+                    fontWeight: 600,
+                    px: 1.5,
+                    minHeight: 30,
+                    boxShadow: "none",
+                  }}
+                  onClick={() => setSelectedClient(client)}
+                >
+                  Edit
+                </Button>
+              </Box>
+
+              {expandedClientId === client.id && (
+                <Box className="client-details-inline" sx={{ width: "100%" }}>
+                  <ClientDetails client={client} />
+                </Box>
+              )}
+            </Box>
+          ))
+        )}
+
+        {/* Modal Edit Panel */}
+        {selectedClient && (
+          <ClientEditPanel
+            client={selectedClient}
+            onClose={() => setSelectedClient(null)}
+            onSave={handleUpdateClient}
+          />
+        )}
+      </Box>
+    );
+  }
