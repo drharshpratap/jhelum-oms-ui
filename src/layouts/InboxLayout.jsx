@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { Container, Paper } from "@mui/material";
-import InboxNavbar from "../components/inbox/InboxNavbar";
+import InboxNavbar from "../components/InboxNavbar";
 
 export default function InboxLayout() {
   return (

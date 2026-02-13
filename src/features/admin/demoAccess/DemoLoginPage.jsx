@@ -61,7 +61,7 @@ export default function DemoLoginPage({
 
       {allowAdminBypass && (
         <Alert severity="warning" sx={{ mt: 2 }}>
-          Admin Override: {adminUser} / {adminPass}
+         Input Admin Override
         </Alert>
       )}
     </Box>

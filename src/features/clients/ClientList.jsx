@@ -4,6 +4,7 @@
   import ClientEditPanel from "./components/ClientEditPanel";
 
 import ClientsHeader from "./components/ClientsHeader";
+import ModuleHeader from "../../components/ModuleHeader";
 
   import {
     Box,
@@ -85,7 +86,22 @@ import ClientsHeader from "./components/ClientsHeader";
       <Box className="clients-wrapper">
           
         {/* Header */}
-        <ClientsHeader onAdd={() => navigate("/clients/add")} />
+        <ModuleHeader
+          title="Clients"
+          subtitle="Manage customer relationships, accounts, and lifecycle activity."
+          actions={
+            <>
+             
+
+              <Button
+                variant="contained"
+                onClick={() => navigate("/clients/add")}
+              >
+                + Add Client
+              </Button>
+            </>
+          }
+        />
 
         {/* Search */}
         <TextField

@@ -1,28 +1,27 @@
 import ModuleHeader from "../components/ModuleHeader";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-
-export default function DocumentNavbar() {
+export default function InboxNavbar() {
   const navigate = useNavigate(); // ✅ define navigate
 
   return (
     <ModuleHeader
-      title="Documents"
-      subtitle="Manage Documents"
+      title="Inbox"
+      subtitle="Manage and Create Messages"
       actions={
         <>
           <Button
             variant="contained"
-            onClick={() => navigate("/documents")}
+            onClick={() => navigate("/inbox")}
           >
-            Documents
+            Inbox
           </Button>
 
           <Button
             variant="contained"
-            onClick={() => navigate("/documents/add")}
+            onClick={() => navigate("/inbox/compose")}
           >
-            Upload
+            Compose
           </Button>
         </>
       }

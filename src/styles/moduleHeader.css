@@ -1,0 +1,49 @@
+.peb-module-header {
+  margin-bottom: 24px;
+  padding: 20px 24px;
+  border-radius: 18px;
+  border: 1px solid var(--peb-stone);
+  background: rgba(245, 244, 241, 0.65);
+  backdrop-filter: blur(12px);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.peb-module-title {
+  font-size: 1.4rem !important;
+  font-weight: 700 !important;
+  color: var(--peb-charcoal) !important;
+}
+
+.peb-module-subtitle {
+  margin-top: 4px !important;
+  font-size: 0.95rem !important;
+  color: var(--peb-muted) !important;
+}
+
+.peb-module-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.peb-module-actions button {
+  background: rgba(245, 244, 241, 0.55) !important;
+  border: 1px solid var(--peb-stone) !important;
+  color: var(--peb-charcoal) !important;
+  backdrop-filter: blur(10px);
+
+  border-radius: 12px !important;
+  text-transform: none !important;
+  font-weight: 600 !important;
+  padding: 8px 18px !important;
+  box-shadow: none !important;
+}
+
+.peb-module-actions button:hover {
+  background: rgba(157, 162, 127, 0.25) !important;
+}
