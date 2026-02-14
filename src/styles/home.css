@@ -4,6 +4,14 @@
   --peb-muted: #8f9587;
   --peb-charcoal: #2b2b2b;
   --peb-ivory: #f5f4f1;
+  --peb-ocean: #2f578f;
+
+  /* Clay Red (Warm highlight / Alerts) */
+  --peb-clay: #b36a5e;
+  --peb-slate: #2c3e50;
+  --peb-mist: #7e9698;
+  --peb-sand: #c19a6b;
+
 }
 
 .home-container {

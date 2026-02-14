@@ -8,12 +8,16 @@ import Home from "./pages/Home";
 import ClientList from "./features/clients/ClientList";
 import ClientForm from "./features/clients/ClientForm";
 
+import ClientTasksDashboard from "./features/clients/tasks/ClientTasksDashboard";
+
+
+
 import DocumentList from "./features/documents/DocumentList";
 import DocumentUpload from "./features/documents/DocumentUpload";
 
 import InboxLayout from "./layouts/InboxLayout";
-import InboxLanding from "./pages/InboxLanding";
-import OutboxLanding from "./pages/OutboxLanding";
+import InboxLanding from "./features/inbox/InboxLanding";
+import OutboxLanding from "./features/inbox/OutboxLanding";
 import DraftLanding from "./pages/DraftLanding";
 import ComposeMessage from "./features/inbox/ComposeMessage";
 import MessageThread from "./features/inbox/MessageThread";
@@ -43,6 +47,8 @@ function App() {
           <Route path="clients" element={<ClientLayout />}>
             <Route index element={<ClientList />} />
             <Route path="add" element={<ClientForm />} />
+            <Route path="tasks" element={<ClientTasksDashboard />} />
+
           </Route>
           
           <Route path="experience" element={<ExperiencePage />} />

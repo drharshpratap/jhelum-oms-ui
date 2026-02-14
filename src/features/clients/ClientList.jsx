@@ -3,7 +3,6 @@
   import ClientDetails from "./ClientDetails";
   import ClientEditPanel from "./components/ClientEditPanel";
 
-import ClientsHeader from "./components/ClientsHeader";
 import ModuleHeader from "../../components/ModuleHeader";
 
   import {
@@ -99,6 +98,14 @@ import ModuleHeader from "../../components/ModuleHeader";
               >
                 + Add Client
               </Button>
+
+              <Button
+                  variant="outlined"
+                  onClick={() => navigate("/clients/tasks")}
+                >
+                  Manage Tasks
+                </Button>
+
             </>
           }
         />
