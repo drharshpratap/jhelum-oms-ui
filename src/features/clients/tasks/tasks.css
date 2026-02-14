@@ -1,0 +1,107 @@
+/* src/features/clients/tasks/tasks.css */
+
+/* ===== Split Layout ===== */
+.peb-taskSplitView {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+  min-height: 520px;
+}
+
+/* ===== Left Panel ===== */
+.peb-taskListPanel {
+  width: 360px;
+  border: 1px solid var(--peb-stone);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--peb-ivory);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+.peb-taskListHeader {
+  padding: 16px;
+  font-weight: 700;
+  border-bottom: 1px solid var(--peb-stone);
+  background: rgba(47, 87, 143, 0.06);
+}
+
+.peb-taskListScroll {
+  max-height: 520px;
+  overflow-y: auto;
+}
+
+/* ===== Task Row ===== */
+.peb-taskRow {
+  padding: 16px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.2s ease;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.peb-taskRow:hover {
+  background: rgba(126, 150, 152, 0.15);
+}
+
+.peb-taskRowSelected {
+  background: rgba(157, 162, 127, 0.2);
+}
+
+.peb-taskTitle {
+  font-weight: 600;
+  color: var(--peb-slate);
+}
+
+.peb-taskMeta {
+  font-size: 0.8rem;
+  color: var(--peb-muted);
+}
+
+/* ===== Status Pills ===== */
+.peb-statusChip {
+  border-radius: 12px;
+  font-weight: 600;
+  color: var(--peb-charcoal);
+}
+
+.peb-statusOpen {
+  background: rgba(157, 162, 127, 0.25);
+}
+
+.peb-statusSubmitted {
+  background: rgba(193, 154, 107, 0.25);
+}
+
+.peb-statusCompleted {
+  background: rgba(47, 87, 143, 0.18);
+}
+
+/* ===== Detail Panel ===== */
+.peb-taskDetailPanel {
+  flex: 1;
+  border: 1px solid var(--peb-stone);
+  border-radius: 16px;
+  padding: 24px;
+  background: var(--peb-ivory);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.peb-taskDetailTitle {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--peb-ocean);
+}
+
+.peb-taskDetailMeta {
+  margin-top: 16px;
+  color: var(--peb-muted);
+}
+
+.peb-taskInstructions {
+  margin-top: 24px;
+  padding: 16px;
+  border-radius: 12px;
+  background: rgba(214, 207, 196, 0.25);
+}
