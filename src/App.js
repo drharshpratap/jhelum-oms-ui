@@ -13,6 +13,8 @@ import DocumentUpload from "./features/documents/DocumentUpload";
 
 import InboxLayout from "./layouts/InboxLayout";
 import InboxLanding from "./pages/InboxLanding";
+import OutboxLanding from "./pages/OutboxLanding";
+import DraftLanding from "./pages/DraftLanding";
 import ComposeMessage from "./features/inbox/ComposeMessage";
 import MessageThread from "./features/inbox/MessageThread";
 
@@ -59,6 +61,8 @@ function App() {
 
           <Route path="inbox" element={<InboxLayout />}>
             <Route index element={<InboxLanding />} />
+             <Route path="draft" element={<DraftLanding />} />
+              <Route path="outbox" element={<OutboxLanding />} />
             <Route path="compose" element={<ComposeMessage />} />
             <Route path="message/:id" element={<MessageThread />} />
           </Route>

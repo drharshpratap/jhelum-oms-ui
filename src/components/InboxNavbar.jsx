@@ -16,6 +16,18 @@ export default function InboxNavbar() {
           >
             Inbox
           </Button>
+          <Button
+            variant="contained"
+            onClick={() => navigate("/inbox/draft")}
+          >
+            Draft
+          </Button>
+          <Button
+            variant="contained"
+            onClick={() => navigate("/inbox/outbox")}
+          >
+            Outbox
+          </Button>
 
           <Button
             variant="contained"

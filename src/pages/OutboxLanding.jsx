@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { Alert } from "@mui/material";
-import InboxMessageList from "../features/inbox/InboxMessageList";
+import OutboxMessageList from "../features/inbox/OutboxMessageList";
 
 export default function InboxLanding() {
   const location = useLocation();
@@ -14,7 +14,7 @@ export default function InboxLanding() {
         </Alert>
       )}
 
-      <InboxMessageList />
+      <OutboxMessageList />
     </>
   );
 }
