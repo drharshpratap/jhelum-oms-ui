@@ -75,6 +75,7 @@ export default function FeatureFlags() {
 
       <Box className="feature-flags-page__list">
         {renderFeatureCard("Customers", "clients")}
+        {renderFeatureCard("Workspace", "workspace")}
         {renderFeatureCard("Documents", "documents")}
         {renderFeatureCard("Inbox", "inbox")}
       </Box>

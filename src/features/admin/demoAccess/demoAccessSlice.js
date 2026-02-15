@@ -45,9 +45,6 @@ const demoAccessSlice = createSlice({
       state.unlockedGuid = null;
       localStorage.removeItem(UNLOCK_KEY);
     },
-    unlockSession(state, action) {
-      state.unlockedGuid = action.payload;
-    },
     cleanupExpired(state) {
       state.sessions = state.sessions.filter((s) => !isExpired(s));
       saveSessions(state.sessions);

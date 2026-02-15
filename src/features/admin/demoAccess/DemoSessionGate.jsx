@@ -32,6 +32,8 @@ export default function DemoSessionGate({ children }) {
     return children;
   }
 
+  if (unlockedGuid) return children;
+
   const session = sessions.find((s) => s.guid === guid);
 
   if (!guid || !session) {
@@ -53,8 +55,18 @@ export default function DemoSessionGate({ children }) {
         allowAdminBypass
         adminUser={ADMIN_USER}
         adminPass={ADMIN_PASS}
-        onUnlock={() => dispatch(unlockSession(guid))}
-        onAdminUnlock={() => dispatch(unlockSession("ADMIN"))}
+        onUnlock={() => {
+          dispatch(unlockSession(guid));
+          sessionStorage.setItem(
+            "demo-role",
+            session?.role || "Editor"
+          );
+        }}
+        onAdminUnlock={() => {
+          dispatch(unlockSession("ADMIN"));
+          sessionStorage.setItem("demo-role", "Admin");
+        }}
+
       />
     );
   }
