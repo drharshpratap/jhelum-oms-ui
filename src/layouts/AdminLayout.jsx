@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { Container, Paper } from "@mui/material";
-import AdminNavbar from "../components/admin/AdminNavbar";
+import AdminNavbar from "../components/AdminNavbar";
 
 export default function AdminLayout() {
   return (

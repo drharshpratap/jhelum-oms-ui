@@ -4,7 +4,7 @@ import GlobalLayout from "./layouts/GlobalLayout";
 import ClientLayout from "./layouts/ClientLayout";
 import WorkspaceLayout from "./layouts/WorkspaceLayout";
 
-import Home from "./pages/Home";
+import Home from "./features/Home";
 import ClientList from "./features/clients/ClientList";
 import ClientForm from "./features/clients/ClientForm";
 
@@ -19,13 +19,13 @@ import WorkspaceLanding from "./features/workspace/WorkspaceLanding";
 import InboxLayout from "./layouts/InboxLayout";
 import InboxLanding from "./features/inbox/InboxLanding";
 import OutboxLanding from "./features/inbox/OutboxLanding";
-import DraftLanding from "./pages/DraftLanding";
+import DraftLanding from "./features/inbox/DraftLanding";
 import ComposeMessage from "./features/inbox/ComposeMessage";
 import MessageThread from "./features/inbox/MessageThread";
 
 
 import AdminLayout from "./layouts/AdminLayout";
-import AdminLanding from "./pages/AdminLanding";
+import AdminLanding from "./features/admin/AdminLanding";
 import InviteUser from "./features/admin/InviteUser";
 import ProductRates from "./features/admin/ProductRates";
 import FeatureFlags from "./features/admin/FeatureFlags";

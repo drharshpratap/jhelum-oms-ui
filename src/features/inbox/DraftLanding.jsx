@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { Alert } from "@mui/material";
-import DraftMessageList from "../features/inbox/DraftMessageList";
+import DraftMessageList from "./DraftMessageList";
 
 export default function InboxLanding() {
   const location = useLocation();

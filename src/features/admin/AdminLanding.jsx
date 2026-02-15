@@ -9,8 +9,8 @@ import {
   Alert
 } from "@mui/material";
 
-import AdminAccessGate from "../features/admin/AdminAccessGate";
-import DemoAccessGenerator from "../features/admin/demoAccess/DemoAccessGenerator";
+import AdminAccessGate from "./AdminAccessGate";
+import DemoAccessGenerator from "./demoAccess/DemoAccessGenerator";
 
 const USERS = [
   { name: "Amit Sharma", email: "amit@mail.com", role: "Admin", status: "Active" },
