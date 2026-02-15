@@ -4,7 +4,7 @@ export const NAV_LINKS = [
 
   // Feature-flag controlled entries
   { label: "Customer", path: "/clients", featureKey: "clients" },
-  { label: "Documents", path: "/documents", featureKey: "documents" },
+  { label: "Workspace", path: "/workspace", featureKey: "workspace" },
   { label: "Inbox", path: "/inbox", featureKey: "inbox" },
 
   { label: "Admin", path: "/admin" }

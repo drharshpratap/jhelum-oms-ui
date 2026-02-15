@@ -7,23 +7,33 @@ export default function DocumentNavbar() {
 
   return (
     <ModuleHeader
-      title="Documents"
-      subtitle="Manage Documents"
+      title="Workspace Management"
+      subtitle="Documents, Tasks, Approval"
       actions={
         <>
           <Button
             variant="contained"
-            onClick={() => navigate("/documents")}
+            onClick={() => navigate("/workspace")}
           >
-            Documents
+            Workspace
           </Button>
 
           <Button
             variant="contained"
-            onClick={() => navigate("/documents/add")}
+            onClick={() => navigate("/workspace/documents")}
           >
-            Upload
+            Documents
           </Button>
+
+
+
+          <Button
+            variant="outlined"
+            onClick={() => navigate("/workspace/tasks")}
+          >
+            Tasks
+          </Button>
+
         </>
       }
     />

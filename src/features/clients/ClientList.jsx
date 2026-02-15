@@ -36,6 +36,55 @@ import ModuleHeader from "../../components/ModuleHeader";
       email: "michael.brown@example.com",
       phone: "+1 555 772 4433",
       status: "Active"
+    },
+    {
+      id: 4,
+      name: "Olivia Lee",
+      email: "olivia.lee@example.com",
+      phone: "+1 555 123 4567",
+      status: "Active"
+    },
+    {
+      id: 5,
+      name: "Ethan Hall",
+      email: "ethan.hall@example.com",
+      phone: "+1 555 901 2345",
+      status: "Inactive"
+    },
+    {
+      id: 6,
+      name: "Sophia Patel",
+      email: "sophia.patel@example.com",
+      phone: "+1 555 678 9012",
+      status: "Active"
+    },
+    {
+      id: 7,
+      name: "Liam Chen",
+      email: "liam.chen@example.com",
+      phone: "+1 555 345 6789",
+      status: "Inactive"
+    },
+    {
+      id: 8,
+      name: "Alexander Martin",
+      email: "alexander.martin@example.com",
+      phone: "+1 555 567 8901",
+      status: "Active"
+    },
+    {
+      id: 9,
+      name: "Ruby Singh",
+      email: "ruby.singh@example.com",
+      phone: "+1 555 890 1234",
+      status: "Inactive"
+    },
+    {
+      id: 10,
+      name: "Hannah Lee",
+      email: "hannah.lee@example.com",
+      phone: "+1 555 111 2223",
+      status: "Active"
     }
   ];
 
@@ -99,12 +148,7 @@ import ModuleHeader from "../../components/ModuleHeader";
                 + Add Client
               </Button>
 
-              <Button
-                  variant="outlined"
-                  onClick={() => navigate("/clients/tasks")}
-                >
-                  Manage Tasks
-                </Button>
+             
 
             </>
           }

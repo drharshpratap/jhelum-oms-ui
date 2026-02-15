@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   featureFlags: {
     clients: true,
-    documents: true,
+    workspace: true,
     inbox: true,
   },
 };

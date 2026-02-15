@@ -18,12 +18,12 @@ const MODULES = [
     featureKey: "clients",
   },
   {
-    title: "Document Management",
-    description: "Upload, organize, and manage documents.",
+    title: "Workspace Management",
+    description: "Upload, organize, and manage Work.",
     image: documentsImg,
-    route: "/documents",
+    route: "/workspace",
     color: "stone",
-    featureKey: "documents",
+    featureKey: "workspace",
   },
   {
     title: "Admin Controls",

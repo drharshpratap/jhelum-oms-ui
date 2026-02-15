@@ -1,0 +1,185 @@
+.peb-workspacePage {
+  padding: 24px;
+}
+
+/* ===== HERO ===== */
+.peb-workspaceHero {
+  margin-top: 20px;
+  padding: 32px;
+  border-radius: 22px;
+  background: linear-gradient(
+    120deg,
+    rgba(47, 87, 143, 0.12),
+    rgba(157, 162, 127, 0.10)
+  );
+}
+
+.peb-workspaceHeroTitle {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--peb-ocean);
+}
+
+.peb-workspaceHeroSubtitle {
+  margin-top: 8px;
+  max-width: 620px;
+  color: var(--peb-muted);
+}
+
+/* ===== ACTION ROW ===== */
+.peb-workspaceActionsRow {
+  margin-top: 22px;
+  display: flex;
+  gap: 16px;
+}
+
+.peb-actionCard {
+  flex: 1;
+  padding: 20px;
+  border-radius: 18px;
+  border: 1px solid var(--peb-stone);
+  background: var(--peb-ivory);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.04);
+}
+
+.peb-actionCardTitle {
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--peb-slate);
+}
+
+.peb-actionCardDesc {
+  margin-top: 6px;
+  font-size: 0.9rem;
+  color: var(--peb-muted);
+}
+
+.peb-actionCardBtn {
+  margin-top: 14px !important;
+  border-radius: 14px !important;
+  text-transform: none !important;
+  font-weight: 600 !important;
+  background: var(--peb-ocean) !important;
+  color: white !important;
+}
+
+/* Approvals muted variant */
+.peb-actionCard-approvals {
+  opacity: 0.65;
+}
+
+/* ===== SNAPSHOT ===== */
+.peb-workspaceSnapshot {
+  margin-top: 28px;
+  padding: 22px;
+  border-radius: 18px;
+  border: 1px solid var(--peb-stone);
+  background: rgba(245, 244, 241, 0.9);
+}
+
+.peb-sectionTitle {
+  font-weight: 800;
+  margin-bottom: 14px;
+  color: var(--peb-slate);
+}
+
+.peb-metricGrid {
+  display: flex;
+  gap: 14px;
+}
+
+.peb-metricCard {
+  flex: 1;
+  padding: 16px;
+  border-radius: 16px;
+  background: rgba(214, 207, 196, 0.25);
+}
+
+.peb-metricValue {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--peb-ocean);
+}
+
+.peb-metricLabel {
+  color: var(--peb-muted);
+}
+
+/* ===== DOCUMENT PREVIEW ===== */
+.peb-docPreview {
+  margin-top: 18px;
+}
+
+.peb-subTitle {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.peb-docList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.peb-docRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  border-radius: 14px;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.peb-docName {
+  font-weight: 600;
+}
+
+.peb-docStatus {
+  color: var(--peb-sand);
+  font-weight: 600;
+}
+
+/* ===== ACTIVITY ===== */
+.peb-activityFeed {
+  margin-top: 26px;
+}
+
+.peb-activityItem {
+  padding: 14px;
+  border-radius: 14px;
+  margin-bottom: 10px;
+  background: rgba(126, 150, 152, 0.10);
+}
+
+.peb-activityText {
+  font-weight: 600;
+}
+
+.peb-activityTime {
+  font-size: 0.8rem;
+  color: var(--peb-muted);
+}
+
+/* ===== FLOATING CTA ===== */
+.peb-floatingCTA {
+  position: fixed !important;
+  bottom: 22px;
+  right: 22px;
+  border-radius: 18px !important;
+  padding: 12px 18px !important;
+  background: var(--peb-clay) !important;
+  color: white !important;
+  text-transform: none !important;
+  font-weight: 700 !important;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 900px) {
+  .peb-workspaceActionsRow {
+    flex-direction: column;
+  }
+
+  .peb-metricGrid {
+    flex-direction: column;
+  }
+}

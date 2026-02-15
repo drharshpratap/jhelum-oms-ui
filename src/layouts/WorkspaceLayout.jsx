@@ -2,7 +2,7 @@
 import { Outlet } from "react-router-dom";
 import DocumentNavbar from "../components/DocumentNavbar";
 
-export default function DocumentLayout() {
+export default function WorkspaceLayout() {
   return (
     <>
       <DocumentNavbar />

@@ -2,18 +2,19 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import GlobalLayout from "./layouts/GlobalLayout";
 import ClientLayout from "./layouts/ClientLayout";
-import DocumentLayout from "./layouts/DocumentLayout";
+import WorkspaceLayout from "./layouts/WorkspaceLayout";
 
 import Home from "./pages/Home";
 import ClientList from "./features/clients/ClientList";
 import ClientForm from "./features/clients/ClientForm";
 
-import ClientTasksDashboard from "./features/clients/tasks/ClientTasksDashboard";
+import ClientTasksDashboard from "./features/workspace/tasks/ClientTasksDashboard";
 
 
+import DocumentList from "./features/workspace/DocumentList";
+import DocumentUpload from "./features/workspace/DocumentUpload";
+import WorkspaceLanding from "./features/workspace/WorkspaceLanding";
 
-import DocumentList from "./features/documents/DocumentList";
-import DocumentUpload from "./features/documents/DocumentUpload";
 
 import InboxLayout from "./layouts/InboxLayout";
 import InboxLanding from "./features/inbox/InboxLanding";
@@ -39,47 +40,48 @@ import DemoSessionGate from "./features/admin/demoAccess/DemoSessionGate";
 function App() {
   return (
     <BrowserRouter>
-       <DemoSessionGate>
-      <Routes>
-        <Route element={<GlobalLayout />}>
-          <Route path="/" element={<Home />} />
+      <DemoSessionGate>
+        <Routes>
+          <Route element={<GlobalLayout />}>
+            <Route path="/" element={<Home />} />
 
-          <Route path="clients" element={<ClientLayout />}>
-            <Route index element={<ClientList />} />
-            <Route path="add" element={<ClientForm />} />
-            <Route path="tasks" element={<ClientTasksDashboard />} />
+            <Route path="clients" element={<ClientLayout />}>
+              <Route index element={<ClientList />} />
+              <Route path="add" element={<ClientForm />} />
+              
+            </Route>
 
-          </Route>
-          
-          <Route path="experience" element={<ExperiencePage />} />
+            <Route path="experience" element={<ExperiencePage />} />
 
-          <Route path="documents" element={<DocumentLayout />}>
-            <Route index element={<DocumentList />} />
-            <Route path="add" element={<DocumentUpload />} />
-          </Route>
+            <Route path="workspace" element={<WorkspaceLayout />}>
+              <Route index element={<WorkspaceLanding />} />
+              <Route path="documents" element={<DocumentList />} />
+              <Route path="documents/add" element={<DocumentUpload />} />
+              <Route path="tasks" element={<ClientTasksDashboard />} />
+            </Route>
 
-          <Route path="/admin" element={<AdminLayout />}>
-            <Route index element={<AdminLanding />} />
-            <Route path="invite" element={<InviteUser />} />
-            <Route path="rates" element={<ProductRates />} />
-            <Route path="featureflags" element={<FeatureFlags />} />
-          </Route>
+            <Route path="/admin" element={<AdminLayout />}>
+              <Route index element={<AdminLanding />} />
+              <Route path="invite" element={<InviteUser />} />
+              <Route path="rates" element={<ProductRates />} />
+              <Route path="featureflags" element={<FeatureFlags />} />
+            </Route>
 
-          <Route path="inbox" element={<InboxLayout />}>
-            <Route index element={<InboxLanding />} />
-             <Route path="draft" element={<DraftLanding />} />
+            <Route path="inbox" element={<InboxLayout />}>
+              <Route index element={<InboxLanding />} />
+              <Route path="draft" element={<DraftLanding />} />
               <Route path="outbox" element={<OutboxLanding />} />
-            <Route path="compose" element={<ComposeMessage />} />
-            <Route path="message/:id" element={<MessageThread />} />
+              <Route path="compose" element={<ComposeMessage />} />
+              <Route path="message/:id" element={<MessageThread />} />
+            </Route>
+
+
           </Route>
-
-
-        </Route>
-      </Routes>
+        </Routes>
       </DemoSessionGate>
-<ChatLauncherButton />
+      <ChatLauncherButton />
 
-      
+
     </BrowserRouter>
   );
 }
