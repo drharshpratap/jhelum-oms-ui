@@ -1,9 +1,11 @@
 import { Outlet } from "react-router-dom";
 import { Container, Paper } from "@mui/material";
 import AdminNavbar from "../components/AdminNavbar";
+import AdminAccessGate from "../features/admin/AdminAccessGate";
 
 export default function AdminLayout() {
   return (
+   <AdminAccessGate>
     <>
       <AdminNavbar />
       <Container maxWidth="lg" sx={{ mt: 4 }}>
@@ -12,5 +14,6 @@ export default function AdminLayout() {
         </Paper>
       </Container>
     </>
+    </AdminAccessGate>
   );
 }

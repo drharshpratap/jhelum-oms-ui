@@ -1,30 +1,45 @@
-import { NavLink } from "react-router-dom";
-import { Box, Button } from "@mui/material";
+import ModuleHeader from "../components/ModuleHeader";
+import { Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 export default function AdminNavbar() {
+  const navigate = useNavigate();
+
   return (
-    <Box
-      sx={{
-        display: "flex",
-        gap: 2,
-        px: 3,
-        py: 1.5,
-        borderBottom: "1px solid #e0e0e0",
-        backgroundColor: "#fafafa"
-      }}
-    >
-      <Button component={NavLink} to="/admin">
-        Overview
-      </Button>
-      <Button component={NavLink} to="/admin/invite">
-        Invite Users
-      </Button>
-      <Button component={NavLink} to="/admin/rates">
-        Product Rates
-      </Button>
-      <Button component={NavLink} to="/admin/featureflags">
-        Feature Flags
-      </Button>
-    </Box>
+    <ModuleHeader
+      title="Admin Console"
+      subtitle="Manage users, pricing rules, and feature configuration."
+      actions={
+        <>
+          <Button
+            variant="contained"
+            onClick={() => navigate("/admin")}
+          >
+            Overview
+          </Button>
+
+          <Button
+            variant="contained"
+            onClick={() => navigate("/admin/invite")}
+          >
+            Invite Users
+          </Button>
+
+          <Button
+            variant="contained"
+            onClick={() => navigate("/admin/rates")}
+          >
+            Product Rates
+          </Button>
+
+          <Button
+            variant="contained"
+            onClick={() => navigate("/admin/featureflags")}
+          >
+            Feature Flags
+          </Button>
+        </>
+      }
+    />
   );
 }
