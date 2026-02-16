@@ -58,3 +58,25 @@ input[type="file"]{
   color:white;
   cursor:pointer;
 }
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .docGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .uploadBar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .uploadBar input[type="file"],
+  .uploadBar .select,
+  .uploadBar button {
+    width: 100%;
+  }
+
+  .buttonPrimary {
+    text-align: center;
+  }
+}

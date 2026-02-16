@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import "./style/documents.css";
 
-
 export default function DocumentUpload({ onUpload }) {
-  // Inline dummy data for demo purposes
   const clientsSeed = [
     { id: "c-1", name: "Acme Corp" },
     { id: "c-2", name: "Globex Ltd" },
@@ -31,19 +29,21 @@ export default function DocumentUpload({ onUpload }) {
   }
 
   return (
-    <div style={{ padding: 12, border: "1px solid #eee", borderRadius: 12 }}>
-      <div style={{ fontWeight: 600, marginBottom: 8 }}>
-        Upload Document (with context)
-      </div>
+    <div className="docCard">
+      <div className="docHeader">Upload Document</div>
 
-      <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
+      <div className="uploadBar">
         <input
           type="file"
           accept="application/pdf,image/*"
           onChange={(e) => setFile(e.target.files?.[0] || null)}
         />
 
-        <select value={clientId} onChange={(e) => setClientId(e.target.value)}>
+        <select
+          className="select"
+          value={clientId}
+          onChange={(e) => setClientId(e.target.value)}
+        >
           {clientsSeed.map((c) => (
             <option key={c.id} value={c.id}>
               {c.name}
@@ -51,7 +51,11 @@ export default function DocumentUpload({ onUpload }) {
           ))}
         </select>
 
-        <select value={taskId} onChange={(e) => setTaskId(e.target.value)}>
+        <select
+          className="select"
+          value={taskId}
+          onChange={(e) => setTaskId(e.target.value)}
+        >
           {tasksSeed.map((t) => (
             <option key={t.id} value={t.id}>
               {t.title}
@@ -59,15 +63,7 @@ export default function DocumentUpload({ onUpload }) {
           ))}
         </select>
 
-        <button
-          onClick={handleSubmit}
-          style={{
-            padding: "8px 12px",
-            borderRadius: 8,
-            border: "1px solid #ddd",
-            cursor: "pointer"
-          }}
-        >
+        <button onClick={handleSubmit} className="buttonPrimary">
           Upload
         </button>
       </div>
