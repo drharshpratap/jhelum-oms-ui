@@ -3,6 +3,7 @@ import { documentsSeed } from "./documents.data";
 import DocumentTable from "./DocumentTable";
 import DocumentInspector from "./DocumentInspector";
 import DocumentUpload from "../DocumentUpload";
+import "../style/documents.css";
 
 export default function DocumentHub() {
   const [documents, setDocuments] = useState(documentsSeed);
@@ -15,12 +16,10 @@ export default function DocumentHub() {
 
   function handleDelete(id) {
     setDocuments((prev) => prev.filter((d) => d.id !== id));
-    if (activeId === id) {
-      setActiveId(null);
-    }
+    if (activeId === id) setActiveId(null);
   }
 
-  function handleUpload(file) {
+  function handleUpload(file, client, task) {
     const previewUrl = URL.createObjectURL(file);
 
     const newDoc = {
@@ -28,8 +27,8 @@ export default function DocumentHub() {
       title: file.name,
       type: file.type.includes("pdf") ? "pdf" : "image",
       uploadedAt: new Date().toISOString().slice(0, 10),
-      client: { id: "c-x", name: "Demo Client" },
-      task: { id: "t-x", title: "Demo Task" },
+      client,
+      task,
       owner: "You",
       previewUrl
     };
@@ -39,10 +38,10 @@ export default function DocumentHub() {
   }
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+    <div className="docHub">
       <DocumentUpload onUpload={handleUpload} />
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 380px", gap: 16 }}>
+      <div className="docGrid">
         <DocumentTable
           documents={documents}
           activeId={activeId}

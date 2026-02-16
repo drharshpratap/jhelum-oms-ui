@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import "./style/documents.css";
+
 
 export default function DocumentUpload({ onUpload }) {
   // Inline dummy data for demo purposes
