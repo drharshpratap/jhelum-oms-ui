@@ -1,55 +1,74 @@
+import React, { useState } from "react";
 
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+export default function DocumentUpload({ onUpload }) {
+  // Inline dummy data for demo purposes
+  const clientsSeed = [
+    { id: "c-1", name: "Acme Corp" },
+    { id: "c-2", name: "Globex Ltd" },
+    { id: "c-3", name: "Initech" }
+  ];
 
-export default function DocumentUpload() {
-  const navigate = useNavigate();
-  const [title, setTitle] = useState("");
+  const tasksSeed = [
+    { id: "t-1", title: "Onboarding Review" },
+    { id: "t-2", title: "Workspace Setup" },
+    { id: "t-3", title: "Approval Cycle" }
+  ];
+
   const [file, setFile] = useState(null);
+  const [clientId, setClientId] = useState(clientsSeed[0].id);
+  const [taskId, setTaskId] = useState(tasksSeed[0].id);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  function handleSubmit() {
+    if (!file) return;
 
-    // simulate successful upload
-    navigate("/documents", {
-      state: { successMessage: "Document uploaded successfully." }
-    });
-  };
+    const client = clientsSeed.find((c) => c.id === clientId);
+    const task = tasksSeed.find((t) => t.id === taskId);
+
+    onUpload(file, client, task);
+    setFile(null);
+  }
 
   return (
-    <form onSubmit={handleSubmit} style={{ maxWidth: "500px" }}>
-      <h3>Upload Document</h3>
-
-      <div style={{ marginTop: "16px" }}>
-        <input
-          type="text"
-          placeholder="Document title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          style={{ width: "100%", padding: "8px" }}
-        />
+    <div style={{ padding: 12, border: "1px solid #eee", borderRadius: 12 }}>
+      <div style={{ fontWeight: 600, marginBottom: 8 }}>
+        Upload Document (with context)
       </div>
 
-      <div style={{ marginTop: "16px" }}>
+      <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
         <input
           type="file"
-          onChange={(e) => setFile(e.target.files[0])}
+          accept="application/pdf,image/*"
+          onChange={(e) => setFile(e.target.files?.[0] || null)}
         />
-      </div>
 
-      <button
-        type="submit"
-        style={{
-          marginTop: "20px",
-          padding: "10px 16px",
-          background: "#1976d2",
-          color: "#fff",
-          border: "none",
-          borderRadius: "4px"
-        }}
-      >
-        Upload
-      </button>
-    </form>
+        <select value={clientId} onChange={(e) => setClientId(e.target.value)}>
+          {clientsSeed.map((c) => (
+            <option key={c.id} value={c.id}>
+              {c.name}
+            </option>
+          ))}
+        </select>
+
+        <select value={taskId} onChange={(e) => setTaskId(e.target.value)}>
+          {tasksSeed.map((t) => (
+            <option key={t.id} value={t.id}>
+              {t.title}
+            </option>
+          ))}
+        </select>
+
+        <button
+          onClick={handleSubmit}
+          style={{
+            padding: "8px 12px",
+            borderRadius: 8,
+            border: "1px solid #ddd",
+            cursor: "pointer"
+          }}
+        >
+          Upload
+        </button>
+      </div>
+    </div>
   );
 }
